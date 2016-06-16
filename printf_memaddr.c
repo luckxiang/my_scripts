@@ -19,7 +19,7 @@ void dump_log(uint8_t *buf,  uint32_t phy, int size)
     for(i = 0; i < size; i += 16)
     {
         len = size - i;
-        if (len > 16)
+        if(len > 16)
         len = 16;
         PRINT("%08x ", i+phy);
         for(j = 0; j < 16; j++)
@@ -51,12 +51,12 @@ void dump_reg(uint32_t *ioremap, uint32_t phy, int size)
     for(i = 0; i < size; i += 4)
     {
         len = size - i;
-        if (len > 4)
+        if(len > 4)
         len = 4;
         PRINT("%08x: ", (uint32_t)((i << 2) + phy));
         for(j = 0; j < 4; j++)
         {
-            if (j < len)
+            if(j < len)
                 PRINT(" %08x", ioremap[i+j]);
             else
                 PRINT("   ");
